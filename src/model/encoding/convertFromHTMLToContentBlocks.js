@@ -247,7 +247,8 @@ function joinChunks(A: Chunk, B: Chunk): Chunk {
 
   if (
     lastInA === '\r' &&
-    firstInB === '\r'
+    firstInB === '\r' &&
+    (A.text !== '\r' || B.text !== '\r')
   ) {
     A.text = A.text.slice(0, -1);
     A.inlines.pop();
